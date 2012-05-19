@@ -43,16 +43,16 @@ Metodologia
 =====================
 
 A) Análise de requisitos;
-	- Ler o texto, abstrair os requisitos, entidades e processos
+- Ler o texto, abstrair os requisitos, entidades e processos
 
 B) Modelagem conceitual;
-	- Entidades e Relacionamentos: Clientes 1->N Ordem de Serviço N<->N Serviços
+- Entidades e Relacionamentos: Clientes 1->N Ordem de Serviço N<->N Serviços
 
 C) Modelagem física BD;
-	- Tabelas e campos: Clientes 1->N OS 1->N OSItens N<-1 Servicos
+- Tabelas e campos: Clientes 1->N OS 1->N OSItens N<-1 Servicos
 
 D) Diagrama de Classes(domainModel)
-	- Classes, atributos e associações: Cliente -> OS -> Servico
+- Classes, atributos e associações: Cliente -> OS -> Servico
 
 E) Implementação 
 
@@ -72,8 +72,8 @@ E) Implementação
 		2.2) Criar conexão com o SGBD;
 			- Serviços -> Banco de Dados -> Botão Direito -> Nova conexão
 	
-	IMPLEMENTAR O DATA ACCESS
-		2.1) Criar as interfaces (Novo -> Interface Java) de repositórios no pacote br.edu.fasa.os.domainModel. Anotar essas interfaces com @Remote.
+	3) IMPLEMENTAR O DATA ACCESS
+		3.1) Criar as interfaces (Novo -> Interface Java) de repositórios no pacote br.edu.fasa.os.domainModel. Anotar essas interfaces com @Remote.
 			- IRepositório<T>
 				- void salvar(T obj);
 				- T abrir(long id);
@@ -82,22 +82,23 @@ E) Implementação
 			- IClienteRepositorio
 			- IServicoRepositorio
 			- IOSRepositorio
-		2.2) Criar o DAO Genérico no pacote br.edu.fasa.os.dataAccess que conterá os métodos comuns a todos os DAO's e implementa a interface IRepositorio.
+		3.2) Criar o DAO Genérico no pacote br.edu.fasa.os.dataAccess que conterá os métodos comuns a todos os DAO's e implementa a interface IRepositorio.
 			- DAOGenerico<T>
 			- Utilizando o EntityManager injetado pela anotação @PersistenceContext
-		2.3) Criar os DAOs como Session Beans  no pacote br.edu.fasa.os.dataAccess.
+		3.3) Criar os DAOs como Session Beans  no pacote br.edu.fasa.os.dataAccess.
 			- Novo -> JAVA EE -> Bean de Sessão
 			- Todos os DAO's herdam de DAOGenerico e implementam uma interface de repositório
 			
-	3) IMPLEMENTAR CLIENTE
-		3.1) Criar projeto do cliente
+	4) IMPLEMENTAR CLIENTE
+		4.1) Criar projeto do cliente
 			- Novo Projeto -> Java EE -> Cliente Aplicativo Corporativo
 			- Adicionar referência para o módulo ejb. (Selecionar Projeto -> Propriedades -> Bibliotecas -> Adicionar Projeto)
 			- Criar o pacote br.edu.fasa.os.presentation
 			- Buscar os EJB's no servidor através do JNDI
 				- Context, InitialContext, context.lookup
 			
-F) TESTES
+F) Testes
+
 	1) Implantar Aplicativo;
 	2) Verificar a criação do BD
 	3) Executar o cliente
