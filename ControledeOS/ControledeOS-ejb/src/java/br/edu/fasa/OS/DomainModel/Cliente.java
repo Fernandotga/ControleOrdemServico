@@ -14,9 +14,13 @@ import javax.persistence.*;
 @Entity
 @Table(name="clientes")
 public class Cliente implements Serializable {
+    
     public Cliente(){
-        
+        this.id = 0L;
+        this.nome = "";
+        this.cpf = "";        
     }
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
